@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{"decoupled-map"|googlemap_js(37.4419, -122.1419, markers=[(37.4419, -122.1419)])}} {{mymap.js}} {{sndmap.js}}
+</head>
+
+<body>
+    <h1>Google Map API tests</h1>
+
+    <h2> no marker </h2>
+    <div>
+        {{googlemap("simple-map", 37.4419, -122.1419)}}
+    </div>
+    <h2> single marker </h2>
+    <div>
+        {{"decoupled-map"|googlemap_html(37.4419, -122.1419)}}
+    </div>
+
+    <h2> markers TODO: This will be the template to show users location</h2>
+    <div>
+        {% with map=googlemap_obj("another-map", 37.4419, -122.1419, markers=[(37.4419, -122.1419), (37.4300, -122.1400)]) %} {{map.html}} {{map.js}} {% endwith %}
+    </div>
+    <h2> First map generated test</h2>
+    <div>
+        {{mymap.html}}
+    </div>
+    <h2> Second map generated test</h2>
+    <h3> Example for different icons in multiple markers with infoboxes</h3>
+    <div>
+        {{sndmap.html}}
+    </div>
+
+</body>
+
+</html>

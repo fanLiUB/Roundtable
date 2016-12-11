@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #e5efff;
+      }
+      div.scrollmenu {
+        background-color:#95b9f4;
+      }
+      #map {
+        margin-top: 4%;
+        margin-left: 28%;
+        width: 70%;
+        height: 70%;
+      }
+      table {
+        align-content: center;
+        width: 20%;
+        height: auto;
+        border-collapse: collapse;
+        position:fixed;
+        margin-top: 4%;
+        margin-left: 2%;
+        font-size: 25px;
+      }
+
+      th, td {
+        border-bottom: 1px solid #ddd;
+        padding: 2px;
+        text-align: left;
+        font-size: 20px;
+      }
+      tr:hover{background-color:#f5f5f5}
+    </style>
+  </head>
+  <body>
+    <div class="scrollmenu">
+      <a href="/">Home</a>
+      <a href="/mapview">Show Map</a>
+      <a href="/logout" style="float:right">Logout</a>
+    </div>
+
+    <table>
+      <tr><td>Name: </td><td>{{user_info[0]}} {{user_info[1]}}</td></tr>
+      <tr><td>University: </td><td>{{user_info[2]}}</td></tr>
+      <tr><td>Class Year: </td><td>{{user_info[3]}}</td></tr>
+    </table>
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 15
+         });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPIxQ95g3W-PAd0WPy_PjM84-HtAKQp1U&callback=initMap">
+    </script>
+  </body>
+</html>

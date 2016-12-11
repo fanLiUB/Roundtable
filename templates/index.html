@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  	<title>hackSociety</title>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  </head>
+  <style type="text/css">
+  	.jumbotron{
+  		background-color:#D9EBF1;
+  		text-align:center;
+	}
+
+	.well {
+		background-color: #aec6cf;
+	}
+
+	p {
+		font-family: 'Roboto', serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: underline;
+	}
+
+	h2 {
+		font-family: 'Roboto', serif;
+        font-size: 20px;
+	}
+
+  </style>
+
+  <body>
+<!--- Header -->
+  	<div class="jumbotron text-center">
+  		<h1>hacksociety</h1>
+  		<h2>Hackathon Profile</h2>
+  		{% if message %}
+   	 	<h4>{{message}}</h4> {% endif %}
+	      <a class="btn btn-primary btn-sm" href="/logout" role="button">Logout</a>
+	</div>
+
+
+<!-- search -->
+   <form class="navbar-form" role="search">
+    <div class="input-group add-on">
+     <select class="form-control" name="hackathon_id" id="hackathons">
+    	{% for skill in skills %}
+      	<option class="form-control" placeholder="Select Skill to Search" name="srch-term" id="srch-term" type="text"> {{skill}} </option>
+      	{% endfor %}
+      	</select>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+
+    </form>
+
+<div class="container text-center">
+  <div class="row">
+
+    <div class="col-sm-3">
+      <div class="well">
+        <p>{{user_name[0]}}</p>
+        <img src="{{ user_picture_url }}" class="img-rounded" height="100" width="100" alt="profilepic">
+        </div>
+        <br>
+	    </div>
+	    <div class="col-sm-3">
+	     <div class="well">
+
+	   		<p>Hackathon you are attending this Weekend</p>
+	   		{% for hackathon in hackathons %}
+                <h2>{{hackathon[0]}}</h2>
+            {% endfor %}
+
+	   	 </div>
+    	</div>
+
+    	<div class="col-sm-3">
+	     <div class="well">
+	   		<p>Skills</p>
+
+
+	   		<ul>
+          {% for user_skill in user_skills %}
+          <li>{{user_skill[0]}}</li>
+          {% endfor %}
+        </ul>
+
+	   	 </div>
+    	</div>
+
+    	<div class="col-sm-3">
+	     <div class="well">
+	   		<p>Interests</p>
+	   		<h5>
+	          <span class="label label-default">Virtual Reality</span>
+	          <span class="label label-primary">Mobile Dev</span>
+	          <span class="label label-success">Web Dev</span>
+	          <span class="label label-info">Data Analytics</span>
+	          <span class="label label-warning">IoT</span>
+	          <span class="label label-danger">Hardware</span>
+	        </h5>
+
+	   	 </div>
+    	</div>
+
+	</div>
+</div>
+
+<br>
+<hr class="divider"></hr>
+<br>
+
+
+  </body>
+</html>

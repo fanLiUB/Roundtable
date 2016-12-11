@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>hackSociety</title>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<style type="text/css">
+    .jumbotron {
+        background-color: #D9EBF1;
+        text-align: center;
+    }
+
+    .form {
+        padding-right: 50px;
+    }
+
+    p {
+        font-family: 'Roboto', serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>hacksociety</h1>
+        <p>Hackathon Profile</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <p align="left"> New Profile</p>
+
+            <form method ="post" action="/register_skills">
+                <br>
+                {% if hackathons %}
+                <div class="form-group">
+
+                    <label for="hackathons">Hackathons This Weekend</label>
+
+                    <select class="form-control" name="hackathon_id" id="hackathons">
+                    {% for hackathon in hackathons %}
+                        <option>{{hackathon[1]}}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                {% endif %}
+                <div class="form-group">
+
+                    <label for="Skills">Skills</label>
+                    <table class="table">
+                        <thead class="thead">
+                            <tr>
+                                <th>Programming Languages</th>
+                                <th>Beginner</th>
+                                <th>Intermediate</th>
+                                <th>Advanced</th>
+                                <th>N/A</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+               {% for skill in skills %}
+                </div>
+
+                <tr>
+                    <th scope="row">{{skill[1]}}</th>
+                      <td><label><input value=[{{skill[0]}},1] type="radio" name="radiobutton"></label></td>
+                      <td><label><input value=[{{skill[0]}},2] type="radio" name="radiobutton"></label></td>
+                      <td><label><input value=[{{skill[0]}},3] type="radio" name="radiobutton"></label></td>
+                      <td><label><input value=[{{skill[0]}},0] type="radio" name="radiobutton"></label></td>
+                </tr>
+                </tbody>
+                  {% endfor %}
+                </table>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Add New Skill</button>
+    </form>
+    <button class="btn btn-success"> <a href='/test'>Next</a></button>
+    </div>
+    </div>
+
+
+</body>
+
+</html>

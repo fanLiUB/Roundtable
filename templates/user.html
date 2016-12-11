@@ -1,0 +1,16 @@
+{% extends "home_page_template.html" %}
+<p>testing</p>
+<ul class="nav pull-right">
+    {% if not session.logged_in %}
+    <li><a href="/facebook_login">Login or Signup</a></li>
+    {% else %}
+    <li><a href="/logout">Logout</a></li>
+</ul>
+<table>
+    <tr valign="top">
+        <td><img src="{{ user_picture_url }}"></td>
+        <td>
+            <h1>User: {{ user_name }}</h1></td>
+    </tr>
+</table>
+{% endif %}

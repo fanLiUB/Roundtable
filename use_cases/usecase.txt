@@ -1,0 +1,52 @@
+Use case: user login
+Actor: all the users
+Trigger: anyone that went on the site first 
+Description: 
+  Reason: We can access the information of the user and generate user a profile that include name. 
+  Outcome: let the user to gain access to the the rest of content of the website
+Preconditions:
+  -User must have access to the internet
+  -User must have a facebook account 
+  -User 
+
+Postconditions:
+  -User profile is created (...)
+  -User can have full access to the website
+  -
+NatualFlow:
+  1. go to the website roundtable.org
+  2. user input information -- facebook login
+  3. After login -- full access
+
+AlternativeFlow:
+  1. When users do not have facebook account. Direct them to facebook and make them sign up for one.
+Exceptions:
+  1. User mistake (password worng...) -- Give user an alert message and let them put in the right message.
+  2. Facebook account already linked to an existed user_profile -- give user an alert message to direct them to login instead of sign up.
+
+Includes: This is the first step ..
+
+Priority:
+  This is the initial barrier. All the other use cases are based on this one.
+Frequency_of_Use:
+  Once
+Business_Rules:
+  none
+Special_Requirements:
+  none
+Assumptions:
+  We assume College Students knows how to sign up for facebook or already have a facebook account
+  Everybody has gui access to Internet
+  Our user base is college students 
+Notes_and_Issues:
+  For the first version fo this software, we focus on students who go to BU specificlly.
+
+
+
+List_of_User_Cases:
+  1. Login and detailed profile creating 
+  2. Locate users on the map using location services (exception: / Prompt user to manually locate user on map if services not working)
+  3. Filter by profile properties  //second stage 
+  5. Project peoples location information on the map
+  6. Add tags on the map based on locations and allow user to edit the message..(check in)
+  7. Share the app function 

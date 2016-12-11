@@ -1,0 +1,47 @@
+html, body{
+    background-color: #abc6f2;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+p{
+  color: white;
+}
+
+div.scrollmenu {
+  background-color:#bbd3f9;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a:active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #76a6f2;
+}
+
+div#m{
+    text-align: center;
+    margin: 15% 0 0 0;
+}
+
+table{
+  max-width: 100%;
+}
+
+#t {display: inline-block;}
