@@ -1,7 +1,7 @@
 import flask
 from flask import Flask, Response, request, render_template, redirect, url_for, send_from_directory, session
 from flaskext.mysql import MySQL
-import flask.ext.login as flask_login
+import flask_login
 from flask_oauth import OAuth
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
@@ -17,7 +17,7 @@ app.config.update(
 #database setup
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = '112358'
+app.config['MYSQL_DATABASE_PASSWORD'] = '01'
 app.config['MYSQL_DATABASE_DB'] = 'roundtable'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
